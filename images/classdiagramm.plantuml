@@ -1,0 +1,14 @@
+@startuml
+class Edge {
+   waypoint: List[Point]
+   namespace = "http://www.omg.org/spec/DD/20100524/DI"
+}
+class LabeledEdge{
+   namespace = "http://www.omg.org/spec/DD/20100524/DI"
+}
+class Bpmnedge {
+   namespace = "http://www.omg.org/spec/BPMN/20100524/DI"
+}
+Bpmnedge <|-- LabeledEdge
+LabeledEdge<|-- Edge
+@enduml
