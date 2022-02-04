@@ -19,6 +19,8 @@ Testcase for XSDATA "Unknown property waypoint" parser error.
         raise ParserError(f"Unknown property {self.meta.qname}:{qname}")
     xsdata.exceptions.ParserError: Unknown property {http://www.omg.org/spec/BPMN/20100524/DI}BPMNEdge:{http://www.omg.org/spec/DD/20100524/DI}waypoint
 
+Pay attention to the **BPMN** and **DD** difference within the namespaces.
+
 # Error description
 The XS schema contains an element named BPMNEdge that has a child element named waypoint:
 
