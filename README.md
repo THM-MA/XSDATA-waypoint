@@ -17,10 +17,11 @@ Testcase for XSDATA "Unknown property waypoint" parser error.
 
     File "c:\Users\Thomas\Desktop\XSDATA-waypoint\venv\lib\site-packages\xsdata\formats\dataclass\parsers\nodes\element.py", line 344, in child
         raise ParserError(f"Unknown property {self.meta.qname}:{qname}")
-    xsdata.exceptions.ParserError: Unknown property {http://www.omg.org/spec/**BPMN**/20100524/DI}BPMNEdge:{http://www.omg.org/spec/**DD**/20100524/DI}waypoint
+    xsdata.exceptions.ParserError: Unknown property {http://www.omg.org/spec/BPMN/20100524/DI}BPMNEdge:{http://www.omg.org/spec/DD/20100524/DI}waypoint
 
 # Error description
 The XS schema contains an element named BPMNEdge that has a child element named waypoint:
+
     <bpmndi:BPMNEdge id="Flow_02wrji7_di" bpmnElement="Flow_02wrji7">
         <di:waypoint x="208" y="117" />
         <di:waypoint x="270" y="117" />
@@ -28,9 +29,8 @@ The XS schema contains an element named BPMNEdge that has a child element named 
 
 Both elments belong to different namespaces:
 
-    {http://www.omg.org/spec/BPMN/20100524/DI}BPMNEdge   # BPMN
-    {http://www.omg.org/spec/DD/20100524/DI}waypoint     # DD
-
+    xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" # BPMN  
+    xmlns:di="http://www.omg.org/spec/DD/20100524/DI"       # DD
 
 ![error](https://github.com/THM-MA/xsdata-waypoint/blob/main/images/waypoint.png)
 
@@ -51,7 +51,7 @@ The error can be located in class xsdata.formats.dataclass.models.builders.XmlMe
     )
 
 # Full example
-File *example.xml* contains a full example of a BPMN diagram that we try to parse using XSDATA:
+The file [example.xml](https://github.com/THM-MA/XSDATA-waypoint/blob/main/example.xml) contains a full example of a BPMN diagram that we try to parse using XSDATA:
 
 ![BPMN example](https://github.com/THM-MA/xsdata-waypoint/blob/main/images/example_bpmn.png)
 
